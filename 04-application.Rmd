@@ -1,7 +1,9 @@
-# Applications
+# Aplikasi
 
 Some _significant_ applications are demonstrated in this chapter.
 
 ## Example one
+
+Makanan yang sangat mahal
 
 ## Example two

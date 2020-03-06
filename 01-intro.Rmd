@@ -1,4 +1,81 @@
-# Introduction {#intro}
+# Dosen {#intro}
+
+Saat ini Universitas Sultan Ageng Tirtayasa memiliki 619 dosen PNS. Dosen PNS di Universitas Sultan Ageng Tirtayasa tersebar di 6 Fakultas, di antaranya:
+
+* Fakultas Hukum (52)
+* FKIP (174)
+* Fakultas Teknik (138)
+* Fakultas Pertanian (70)
+* Fakultas Ekonomi dan Bisnis (109)
+* FISIP (57)
+* Fakultas Kedokteran (19)
+
+Sebaran lengkap dosen PNS Universitas Sultan Ageng Tirtayasa di tiap fakultas bisa dilihat pada diagram berikut.
+
+```{r, echo=FALSE}
+dosen <- read.csv("static/dosen.csv", sep = ";")
+dosen <- dosen[, 1:9]
+library(ggplot2, warn.conflicts = F)
+library(dplyr, warn.conflicts = F)
+library(plotly, warn.conflicts = F)
+plot_ly(dosen, x = ~FAKULTAS) %>%
+  add_histogram()
+```
+
+Berikut adalah sebaran dosen PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin.
+
+```{r, echo=FALSE}
+jk <- dosen %>%
+  group_by(JK) %>%
+  summarize(banyak = n())
+
+plot_ly(type = "pie", labels = jk$JK, values = jk$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial")
+```
+
+
+Berikut adalah sebaran dosen PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan.
+
+```{r, echo=FALSE}
+pendidikan <- dosen %>%
+  group_by(PENDIDIKAN) %>%
+  summarize(banyak = n())
+
+plot_ly(type = "pie", labels = pendidikan$PENDIDIKAN, values = pendidikan$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial")
+```
+
+Berikut adalah sebaran dosen PNS Universitas Sultan Ageng Tirtayasa berdasarkan golongan.
+
+```{r, echo=FALSE}
+plot_ly(dosen, x = ~GOL) %>%
+  add_histogram()
+```
+
+Berikut adalah sebaran dosen PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan akademik.
+
+```{r, echo=FALSE}
+jabatan <- dosen %>%
+  group_by(JABATAN) %>%
+  summarize(banyak = n())
+
+jabatan$JABATAN <- c("Asisten Ahli", "Guru Besar", "Lektor",
+                     "Lektor Kepala", "Tenaga Pengajar")
+
+plot_ly(type = "pie", labels = jabatan$JABATAN, values = jabatan$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial")
+```
+
+Berikut adalah daftar nama dosen PNS di Universitas Sultan Ageng Tirtayasa.
+
+```{r, echo=FALSE}
+DT::datatable(dosen[,c(1, 3, 4, 7:9)])
+```
+
+
 
 You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
 
