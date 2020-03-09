@@ -1,5 +1,5 @@
 book_filename: "turunbuku"
-delete_merged_file: true
+delete_merged_file: false
 language:
   ui:
-    chapter_name: "Bab "
+    chapter_name: "Bagian "
