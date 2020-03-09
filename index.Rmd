@@ -17,24 +17,103 @@ biblio-style: apalike
 
 Tahun 2019 Universitas Sultan Ageng Tirtayasa secara resmi menerima 4.134 mahasiswa baru jenjang S1 dan D3. Berikut adalah statistik mahasiswa baru Universitas Sultan Ageng Tirtayasa tahun akademik 2019/2020.
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk dan Jenis Kelamin", out.width="150%"}
-knitr::include_graphics(rep("static/02_JK.jpg"))
+> Mahasiswa Baru Berdasarkan Jalur Masuk dan Jenis Kelamin.
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(janitor)
+library(kableExtra)
+maba <- read.csv("static/maba.csv")
+jk <- maba %>%
+  group_by(JALUR, JK) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total)
+names(jk) <- c("Jenis Kelamin", "SNMPTN", "SBMPTN", "SMMPTN",
+               "UMM", "ADIK")
+jk <- adorn_totals(jk, where = c("col", "row"), name = "Jumlah")
+kable(jk) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Fakultas", out.width="150%"}
-knitr::include_graphics(rep("static/03_FAK.jpg"))
+> Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Fakultas.
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+fak <- maba %>%
+  group_by(JALUR, FAKULTAS) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total)
+names(fak) <- c("Fakultas", "SNMPTN", "SBMPTN", "SMMPTN",
+                "UMM", "ADIK")
+fak[is.na(fak)] <- 0
+fak$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian",
+                  "FEB", "FISIP", "Kedokteran")
+fak <- adorn_totals(fak, where = c("row", "col"), name = "Jumlah")
+kable(fak) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Program Studi", out.width="150%"}
-knitr::include_graphics(rep("static/01_Fak Prodi.jpg"))
+> Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Program Studi.
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+prod <- maba %>%
+  group_by(JALUR, FAKULTAS, PROGRAM.STUDI) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total) %>%
+  arrange(FAKULTAS)
+prod <- prod[,-1]
+prod[is.na(prod)] <- 0
+names(prod) <- c("Fakultas/Program Studi", "SNMPTN", "SBMPTN", "SMMPTN",
+                "UMM", "ADIK")
+prod <- adorn_totals(prod, where = c("row", "col"), name = "Jumlah")
+kable(prod) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1)) %>%
+  pack_rows("Hukum", 1, 1, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FKIP", 2, 19, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Teknik", 20, 25, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Pertanian", 26, 29, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FEB", 30, 37, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FISIP", 38, 40, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Kedokteran", 41, 44, label_row_css = "background-color: #666; color: #fff;")
 ```
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk dan Provinsi Asal Mahasiswa", out.width="150%"}
-knitr::include_graphics(rep("static/04_PROV.jpg"))
+> Mahasiswa Baru Berdasarkan Jalur Masuk dan Provinsi Asal Mahasiswa.
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+prov <- maba %>%
+  group_by(JALUR, PROVINSI) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total) %>%
+  arrange(PROVINSI)
+prov[is.na(prov)] <- 0
+names(prov) <- c("Provinsi", "SNMPTN", "SBMPTN", "SMMPTN",
+                 "UMM", "ADIK")
+prov <- adorn_totals(prov, where = c("row", "col"), name = "Jumlah")
+kable(prov) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk dan Penghasilan Orang Tua", out.width="150%"}
-knitr::include_graphics(rep("static/05_Penghasilan Ortu.jpg"))
+> Mahasiswa Baru Berdasarkan Jalur Masuk dan Penghasilan Orang Tua.
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+eko <- maba %>%
+  group_by(JALUR, PENGHASILAN) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total) %>%
+  arrange(PENGHASILAN)
+eko[is.na(eko)] <- 0
+names(eko) <- c("Kategori Penghasilan", "SNMPTN", "SBMPTN", "SMMPTN",
+                 "UMM", "ADIK")
+eko$`Kategori Penghasilan` <- c("<= 500.000", "500.000 - 2.000.000",
+                                "2.000.000 - 3.500.000", "3.500.000 - 5.000.000",
+                                "5.000.000 - 10.000.000", "> 10.000.000")
+eko <- adorn_totals(eko, where = c("row", "col"), name = "Jumlah")
+kable(eko) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
 ```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk dan Pendidikan Terakhir Orang Tua", out.width="150%"}
