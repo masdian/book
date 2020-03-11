@@ -17,6 +17,7 @@ biblio-style: apalike
 
 Tahun 2019 Universitas Sultan Ageng Tirtayasa secara resmi menerima 4.134 mahasiswa baru jenjang S1 dan D3. Berikut adalah statistik mahasiswa baru Universitas Sultan Ageng Tirtayasa tahun akademik 2019/2020.
 
+
 > Mahasiswa Baru Berdasarkan Jalur Masuk dan Jenis Kelamin.
 
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
@@ -36,6 +37,7 @@ kable(jk) %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
+
 > Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Fakultas.
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
@@ -53,6 +55,7 @@ kable(fak) %>%
   kable_styling(bootstrap_options = "striped", full_width = F) %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
+
 
 > Mahasiswa Baru Berdasarkan Jalur Masuk di Setiap Program Studi.
 
@@ -79,6 +82,7 @@ kable(prod) %>%
   pack_rows("Kedokteran", 41, 44, label_row_css = "background-color: #666; color: #fff;")
 ```
 
+
 > Mahasiswa Baru Berdasarkan Jalur Masuk dan Provinsi Asal Mahasiswa.
 
 ```{r, echo = FALSE, message=FALSE, warning=FALSE}
@@ -95,6 +99,7 @@ kable(prov) %>%
   kable_styling(bootstrap_options = "striped", full_width = F) %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
+
 
 > Mahasiswa Baru Berdasarkan Jalur Masuk dan Penghasilan Orang Tua.
 
@@ -116,8 +121,24 @@ kable(eko) %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
-```{r, echo = FALSE, fig.cap="Mahasiswa Baru Berdasarkan Jalur Masuk dan Pendidikan Terakhir Orang Tua", out.width="150%"}
-knitr::include_graphics(rep("static/06_PendTerahirOrtu.jpg"))
+
+> Mahasiswa Baru Berdasarkan Jalur Masuk dan Penghasilan Orang Tua.
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+pend <- maba %>%
+  group_by(JALUR, Pendidikan) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JALUR, values_from = total) %>%
+  arrange(Pendidikan)
+pend[is.na(pend)] <- 0
+names(pend) <- c("Pendidikan Terakhir", "SNMPTN", "SBMPTN", "SMMPTN",
+                 "UMM", "ADIK")
+pend$`Pendidikan Terakhir` <- c("SD", "SLTP", "SLTA", "D1", "D2", "D3",
+                                "D4", "S1", "S2", "S3", "Tidak diketahui")
+pend <- adorn_totals(pend, where = c("row", "col"), name = "Jumlah")
+kable(pend) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1))
 ```
 
 

@@ -1,18 +1,31 @@
-# Mahasiswa Aktif {#intro}
+# Mahasiswa Aktif
 
-## Hukum
 
-## FKIP
+> Mahasiswa aktif di semester genap Tahun Akademik 2019/2020
 
-## Teknik
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+aktif <- read.csv("static/aktif.csv")
+library(kableExtra)
+library(janitor)
+names(aktif) <- c("Fakultas", "2013", "2014", "2015", "2016", "2017",
+                  "2018", "2019")
+aktif[is.na(aktif)] <- 0
+aktif <- adorn_totals(aktif, where = c("col", "row"), name = "Jumlah")
+kable(aktif) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c(" " = 1, "Angkatan" = 7, " " = 1)) %>%
+  pack_rows("Pascasarjana", 1, 11, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Hukum", 12, 12, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FKIP", 13, 30, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Teknik", 31, 36, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Pertanian", 37, 40, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FEB", 41, 49, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("FISIP", 50, 52, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Kedokteran", 53, 56, label_row_css = "background-color: #666; color: #fff;")
 
-## Pertanian
+```
 
-## FEB
 
-## FISIP
-
-## Kedokteran
 
 
 
