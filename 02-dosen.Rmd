@@ -159,6 +159,9 @@ kable(jabF) %>%
 
 Berikut adalah daftar nama dosen PNS di Universitas Sultan Ageng Tirtayasa.
 
-```{r, echo=FALSE}
-DT::datatable(dosen[,c(4, 8, 5, 10:12)])
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+dosen1 <- dosen[,c(2, 4, 3, 5, 6, 8, 10)]
+names(dosen1) <- c("Nama", "JK", "Pendidikan", "Gol", "Jabatan",
+                   "Fakultas", "Program Studi")
+DT::datatable(dosen1)
 ```

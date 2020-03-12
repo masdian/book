@@ -16,11 +16,11 @@ kable(aktif) %>%
   add_header_above(c(" " = 1, "Angkatan" = 7, " " = 1)) %>%
   pack_rows("Pascasarjana", 1, 11, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Hukum", 12, 12, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FKIP", 13, 30, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Keguruan dan Ilmu Pendidikan", 13, 30, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Teknik", 31, 36, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Pertanian", 37, 40, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FEB", 41, 49, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FISIP", 50, 52, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ekonomi dan Bisnis", 41, 49, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ilmu Sosial dan Ilmu Politik", 50, 52, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Kedokteran", 53, 56, label_row_css = "background-color: #666; color: #fff;")
 
 ```

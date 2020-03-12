@@ -1,12 +1,12 @@
 --- 
-title: "Untirta dalam Angka"
-author: "Subbagian Registrasi dan Statistik"
+title: "Untirta dalam Angka: semester genap Tahun Akademik 2019/2020"
+author: "oleh Subbagian Registrasi dan Statistik"
 date: "`r Sys.Date()`"
 bibliography:
 - book.bib
 - packages.bib
 description: Untirta dalam angka dalam lingkup Biro Akademik, Kemahasiswaan, dan Perencanaan
-  (BAKP). The output format for this example is bookdown::gitbook.
+  (BAKP) semester genap Tahun Akademik 2019/2020. The output format for this example is bookdown::gitbook.
 documentclass: book
 link-citations: yes
 site: bookdown::bookdown_site
@@ -74,11 +74,11 @@ kable(prod) %>%
   kable_styling(bootstrap_options = "striped", full_width = F) %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 5, " " = 1)) %>%
   pack_rows("Hukum", 1, 1, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FKIP", 2, 19, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Keguruan dan Ilmu Pendidikan", 2, 19, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Teknik", 20, 25, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Pertanian", 26, 29, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FEB", 30, 37, label_row_css = "background-color: #666; color: #fff;") %>%
-  pack_rows("FISIP", 38, 40, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ekonomi dan Bisnis", 30, 37, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ilmu Sosial dan Ilmu Politik", 38, 40, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Kedokteran", 41, 44, label_row_css = "background-color: #666; color: #fff;")
 ```
 
