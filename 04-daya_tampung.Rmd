@@ -12,7 +12,8 @@ library(janitor)
 library(kableExtra)
 dt19 <- adorn_totals(dt19, where = c("row", "col"), name = "Total")
 kable(dt19, row.names = F) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 3, " " = 1)) %>%
   pack_rows("Hukum", 1, 1, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Keguruan dan Ilmu Pendidikan", 2, 20, label_row_css = "background-color: #666; color: #fff;") %>%
@@ -31,7 +32,8 @@ dt20 <- dt[dt$TA == 2020, 1:4]
 names(dt20) <- c("Program Studi", "SNMPTN", "SBMPTN", "SMMPTN")
 dt20 <- adorn_totals(dt20, where = c("row", "col"), name = "Total")
 kable(dt20, row.names = F) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Jalur Masuk" = 3, " " = 1)) %>%
   pack_rows("Hukum", 1, 1, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Keguruan dan Ilmu Pendidikan", 2, 19, label_row_css = "background-color: #666; color: #fff;") %>%

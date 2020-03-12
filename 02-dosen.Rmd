@@ -56,7 +56,8 @@ jkF <- jkF %>%
 jkF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
 jkF <- adorn_totals(jkF, where = c("row", "col"), name = "Jumlah")
 kable(jkF) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
 ```
 
@@ -86,7 +87,8 @@ edF <- edF %>%
 edF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
 edF <- adorn_totals(edF, where = c("row", "col"), name = "Jumlah")
 kable(edF) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Pendidikan" = 2, " " = 1))
 ```
 
@@ -116,7 +118,8 @@ golF[is.na(golF)] <- 0
 golF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
 golF <- adorn_totals(golF, where = c("col", "row"), name = "Jumlah")
 kable(golF) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Golongan" = 9, " " = 1))
 ```
 
@@ -150,7 +153,8 @@ names(jabF) <- c("Fakultas", "Guru Besar", "Lektor Kepala", "Lektor",
 jabF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
 jabF <- adorn_totals(jabF, where = c("row", "col"), name = "Jumlah")
 kable(jabF) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Jabatan Akademik" = 5, " " = 1))
 ```
 

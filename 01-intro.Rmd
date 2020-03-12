@@ -12,7 +12,8 @@ names(aktif) <- c("Fakultas", "2013", "2014", "2015", "2016", "2017",
 aktif[is.na(aktif)] <- 0
 aktif <- adorn_totals(aktif, where = c("col", "row"), name = "Jumlah")
 kable(aktif) %>%
-  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Angkatan" = 7, " " = 1)) %>%
   pack_rows("Pascasarjana", 1, 11, label_row_css = "background-color: #666; color: #fff;") %>%
   pack_rows("Hukum", 12, 12, label_row_css = "background-color: #666; color: #fff;") %>%
