@@ -10,6 +10,7 @@ dt19 <- dt[dt$TA == 2019, 1:4]
 names(dt19) <- c("Program Studi", "SNMPTN", "SBMPTN", "SMMPTN")
 library(janitor)
 library(kableExtra)
+dt19[is.na(dt19)] <- 0
 dt19 <- adorn_totals(dt19, where = c("row", "col"), name = "Total")
 kable(dt19, row.names = F) %>%
   kable_styling(bootstrap_options = "striped", full_width = F,
@@ -30,6 +31,7 @@ kable(dt19, row.names = F) %>%
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 dt20 <- dt[dt$TA == 2020, 1:4]
 names(dt20) <- c("Program Studi", "SNMPTN", "SBMPTN", "SMMPTN")
+dt20[is.na(dt20)] <- 0
 dt20 <- adorn_totals(dt20, where = c("row", "col"), name = "Total")
 kable(dt20, row.names = F) %>%
   kable_styling(bootstrap_options = "striped", full_width = F,
