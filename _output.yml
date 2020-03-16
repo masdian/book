@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Untirta dalam Angka</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Dibuat dengan bookdown</a></li>
+        <li><a href="mailto:registrasi@untirta.ac.id" target="blank">Hubungi Kami</a></li>
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

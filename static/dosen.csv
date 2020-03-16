@@ -421,8 +421,8 @@ NIP,NAMA,PENDIDIKAN,JK,GOL,JAB,JABATAN,FAK,Fakultas,Program Studi
 1.99E+17,"Dini Surilayani, S.Pi., MP.",S2,P,IIIb,Asisten Ahli,4_AA,Pertanian,4_Pertanian,Ilmu Perikanan
 1.99E+17,"Alfu Laila, SP., M.Sc.",S2,P,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Agroekoteknologi
 1.99E+17,"Julio Eiffelt Rossafelt Rumbiak, SP., MP.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Agroekoteknologi
-1.99E+17,"Desy Aryani, M.Si.",S2,P,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Agroekoteknologi
-1.99E+17,"Rifki Prayoga Aditia, S.Pi., M.Si.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Agroekoteknologi
+1.99E+17,"Desy Aryani, M.Si.",S2,P,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Ilmu Perikanan
+1.99E+17,"Rifki Prayoga Aditia, S.Pi., M.Si.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Ilmu Perikanan
 1.99E+17,"Nur Iman Muztahidin, SP., M.Sc.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Agroekoteknologi
 1.99E+17,"Ginanjar Pratama, S.Pi., M.Si.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Ilmu Perikanan
 1.99E+17,"Muh. Herjayanto, S.Pi., M.Si.",S2,L,IIIb,Tenaga Pengajar,5_TP,Pertanian,4_Pertanian,Ilmu Perikanan
@@ -514,8 +514,8 @@ NIP,NAMA,PENDIDIKAN,JK,GOL,JAB,JABATAN,FAK,Fakultas,Program Studi
 1.98E+17,"Mulyanah, SE., M.Si.",S2,P,IIIc,Lektor,3_L,FEB,5_FEB,Perpajakan (D3)
 1.98E+17,"Adih Supriadi, SE., MM.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi
 1.99E+17,"Tri Wahyudi, S.Pd., M.Ak.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi
-1.99E+17,"Dabella Yunia, SE., M.S.A., Ak.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi
-1.99E+17,"Chandra Prasadhita, SE.Sy., M.Si.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi
+1.99E+17,"Dabella Yunia, SE., M.S.A., Ak.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi (D3)
+1.99E+17,"Chandra Prasadhita, SE.Sy., M.Si.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi (D3)
 1.98E+17,"H. Seandy Ginanjar, SE., M.Ak.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Akuntansi
 1.99E+17,"Najmudin, Lc., ME.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ekonomi Syariah
 1.99E+17,"Muhamad Fakhrudin, Lc., MH.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ekonomi Syariah
@@ -523,24 +523,24 @@ NIP,NAMA,PENDIDIKAN,JK,GOL,JAB,JABATAN,FAK,Fakultas,Program Studi
 1.99E+17,"Muhammad Abduh, S.Sy., MH.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ekonomi Syariah
 1.99E+17,"Ahmad Fatoni, SE.Sy., M.E.K.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ekonomi Syariah
 1.99E+17,"Galih Ginanjar Saputra, S.Pd., MM.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
-1.99E+17,"Titis Nistia Sari, S.St., ME.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
-1.99E+17,"Widya Nur Bhakti Pertiwi, S.M.B., MM.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
+1.99E+17,"Titis Nistia Sari, S.St., ME.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Keuangan dan Perbankan (D3)
+1.99E+17,"Widya Nur Bhakti Pertiwi, S.M.B., MM.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen Pemasaran (D3)
 1.99E+17,"Rizal Syaifudin, SE., MA.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
-1.99E+17,"Farah Putri Wenang Lusianingrum, S.Pd., M. Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
-1.99E+17,"Lina Affifatusholihah, S.E.I., S.Pd., M.Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
+1.99E+17,"Farah Putri Wenang Lusianingrum, S.Pd., M. Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen Pemasaran (D3)
+1.99E+17,"Lina Affifatusholihah, S.E.I., S.Pd., M.Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen Pemasaran (D3)
 1.98E+17,"Saharuddin Didu, STP., ME.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
 1.99E+17,"Deris Desmawan, SE., M.Si.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
 1.99E+17,"Stannia Cahaya Suci, SE., M.Si.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
 1.99E+17,"Vadilla Mutia Zahara, SE., ME.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Ilmu Ekonomi Pembangunan
-1.99E+17,"Edy Arisondha, SE., MM.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen
-1.99E+17,"Fiesty Utami, S.St., M.Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen
+1.99E+17,"Edy Arisondha, SE., MM.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Keuangan dan Perbankan (D3)
+1.99E+17,"Fiesty Utami, S.St., M.Sc.",S2,P,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Keuangan dan Perbankan (D3)
 1.97E+17,"Boyke Pribadi, S.Si., MM.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen
 1.98E+17,"Dr. Guswandi, SE., M.Si.",S3,L,IIIa,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen
 1.99E+17,"Amalia Romadhona, S.St., MT.",S2,P,IIIc,Asisten Ahli,4_AA,FEB,5_FEB,Manajemen
 1.98E+17,"Mazda Eko Sri Tjahjono, M.Akt.",S2,L,IIIb,Asisten Ahli,4_AA,FEB,5_FEB,Perpajakan (D3)
 1.98E+17,"Sabaruddinsah, SE., M.Si.",S2,L,IIIb,Tenaga Pengajar,5_TP,FEB,5_FEB,Akuntansi
 1.99E+17,"Isti Nuzulul Atiah, Lc., MA.Ek.",S2,P,IIIb,Tenaga Pengajar,5_TP,FEB,5_FEB,Ekonomi Syariah
-1.99E+17,"Fadhilah, S.I.Kom., MM.",S2,L,IIIb,Tenaga Pengajar,5_TP,FEB,5_FEB,Manajemen
+1.99E+17,"Fadhilah, S.I.Kom., MM.",S2,L,IIIb,Tenaga Pengajar,5_TP,FEB,5_FEB,Manajemen Pemasaran (D3)
 1.97E+17,"Prof. Dr. H. Ahmad Sihabudin, M.Si.",S3,L,IVd,Guru Besar,1_GB,FISIP,6_FISIP,Ilmu Komunikasi
 1.96E+17,"Drs. H. Oman Supriadi, M.Si.",S2,L,IVa,Lektor Kepala,2_LK,FISIP,6_FISIP,Administrasi Publik
 1.97E+17,"Dr. Ayuning Budiati, S.IP., MPPM.",S3,P,IVa,Lektor Kepala,2_LK,FISIP,6_FISIP,Administrasi Publik

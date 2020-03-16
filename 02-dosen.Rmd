@@ -1,7 +1,8 @@
 # Dosen
 
-Saat ini Universitas Sultan Ageng Tirtayasa memiliki 618 dosen PNS. Dosen PNS di Universitas Sultan Ageng Tirtayasa tersebar di 6 Fakultas. Berikut ini adalah stasitik Dosen PNS di lingkungan Universitas Sultan Ageng Tirtayasa.
+Saat ini Universitas Sultan Ageng Tirtayasa memiliki 618 dosen tetap PNS dan 148 dosen tetap non PNS yang tersebar di 6 Fakultas. Berikut ini adalah stasitik Dosen tetap PNS dan dosen tetap non PNS di lingkungan Universitas Sultan Ageng Tirtayasa.
 
+## Dosen PNS
 
 > Sebaran lengkap dosen PNS Universitas Sultan Ageng Tirtayasa di tiap fakultas.
 
@@ -167,5 +168,10 @@ Berikut adalah daftar nama dosen PNS di Universitas Sultan Ageng Tirtayasa.
 dosen1 <- dosen[,c(2, 4, 3, 5, 6, 8, 10)]
 names(dosen1) <- c("Nama", "JK", "Pendidikan", "Gol", "Jabatan",
                    "Fakultas", "Program Studi")
+#kable(dosen1, longtable = T) %>%
+#  kable_styling(bootstrap_options = "striped", full_width = F,
+#                latex_options = c("scale_down", "repeat_header"))
 DT::datatable(dosen1)
 ```
+
+## Dosen Tetap non PNS
