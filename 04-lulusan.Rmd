@@ -1,3 +1,25 @@
 # Lulusan
 
 Under construction
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(janitor)
+library(kableExtra)
+lulusan <- read.csv("static/lulusan.csv")
+lulusan[is.na(lulusan)] <- 0
+names(lulusan) <- c("Program Studi", "Jenjang", "s.d.2014", "2015", "2016",
+                    "2017", "2018", "2019")
+lulusan <- adorn_totals(lulusan, where = c("row", "col"), name = "Jumlah")
+kable(lulusan, row.names = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 2, "Angkatan" = 6, " " = 1)) %>%
+  pack_rows("Pascasarjana", 1, 8, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Hukum", 9, 9, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Keguruan dan Ilmu Pendidikan", 10, 31, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Teknik", 32, 39, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Pertanian", 40, 42, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ekonomi dan Bisnis", 43, 50, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Ilmu Sosial dan Ilmu Politik", 51, 53, label_row_css = "background-color: #666; color: #fff;") %>%
+  pack_rows("Kedokteran", 54, 57, label_row_css = "background-color: #666; color: #fff;")
+
+```
