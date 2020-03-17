@@ -1,6 +1,6 @@
 # Dosen
 
-Saat ini Universitas Sultan Ageng Tirtayasa memiliki 618 dosen tetap PNS dan 148 dosen tetap non PNS yang tersebar di 6 Fakultas. Berikut ini adalah stasitik Dosen tetap PNS dan dosen tetap non PNS di lingkungan Universitas Sultan Ageng Tirtayasa.
+Saat ini Universitas Sultan Ageng Tirtayasa memiliki 618 dosen tetap PNS dan 150 dosen tetap non PNS yang tersebar di 6 Fakultas. Berikut ini adalah stasitik Dosen tetap PNS dan dosen tetap non PNS di lingkungan Universitas Sultan Ageng Tirtayasa.
 
 ## Dosen PNS
 
@@ -175,3 +175,116 @@ DT::datatable(dosen1)
 ```
 
 ## Dosen Tetap non PNS
+
+> Sebaran lengkap dosen non PNS Universitas Sultan Ageng Tirtayasa di tiap fakultas.
+
+```{r, echo=FALSE, out.width="60%", message=FALSE, warning=FALSE, fig.align='center'}
+dstkk <- read.csv("static/dosentkk.csv")
+ds <- dstkk %>%
+  group_by(JK, Fakultas) %>%
+  summarize(total = n()) %>%
+  pivot_wider(names_from = JK, values_from = total)
+names(ds) <- c("Fakultas", "Laki-Laki", "Perempuan")
+ds$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
+ds[is.na(ds)] <- 0
+### agar sesuai urutan dibuat faktor dengan level yang berurutan
+ds$Fakultas <- factor(ds$Fakultas, levels = ds[["Fakultas"]])
+
+div(plot_ly(ds, x = ~Fakultas, y = ~`Laki-Laki`, type = 'bar', name = "Laki-Laki") %>% 
+  add_trace(y = ~Perempuan, name = "Perempuan") %>%
+  layout(yaxis = list(title = ' '), barmode = 'group'), align = "center")
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin.
+
+```{r, echo=FALSE, out.width="60%"}
+dstkk_jk <- dstkk %>%
+  group_by(JK) %>%
+  summarize(banyak = n())
+dstkk_jk$JK <- c("Laki-Laki", "Perempuan")
+
+div(plot_ly(type = "pie", labels = dstkk_jk$JK, values = dstkk_jk$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin di setiap Fakultas.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+dstkk_jkF <- dstkk %>%
+  group_by(Fakultas, JK) %>%
+  summarize(Total = n())
+
+dstkk_jkF <- dstkk_jkF %>%
+  pivot_wider(names_from = JK, values_from = Total)
+dstkk_jkF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
+dstkk_jkF <- adorn_totals(dstkk_jkF, where = c("row", "col"), name = "Jumlah")
+kable(dstkk_jkF) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan.
+
+```{r, echo=FALSE, out.width="60%"}
+dstkk_pend <- dstkk %>%
+  group_by(pendidikan) %>%
+  summarize(banyak = n())
+
+dstkk_pend$pendidikan <- c("S1 Profesi", "Spesialis", "S2", "S3")
+div(plot_ly(type = "pie", labels = dstkk_pend$pendidikan, values = dstkk_pend$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan di setiap Fakultas.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+dstkk_pendF <- dstkk %>%
+  group_by(Fakultas, pendidikan) %>%
+  summarize(Total = n())
+dstkk_pendF <- dstkk_pendF %>%
+  pivot_wider(names_from = pendidikan, values_from = Total)
+names(dstkk_pendF) <- c("Fakultas", "S2", "S3", "S1 Profesi", "Spesialis")
+dstkk_pendF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
+dstkk_pendF[is.na(dstkk_pendF)] <- 0
+dstkk_pendF <- adorn_totals(dstkk_pendF, where = c("row", "col"), name = "Jumlah")
+kable(dstkk_pendF) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Pendidikan" = 4, " " = 1))
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan akademik.
+
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
+dstkk_ja <- dstkk %>%
+  group_by(JFA) %>%
+  summarize(banyak = n())
+
+dstkk_ja$JFA <- c("Lektor Kepala", "Lektor", "Asisten Ahli", "Tenaga Pengajar")
+
+div(plot_ly(type = "pie", labels = dstkk_ja$JFA, values = dstkk_ja$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran dosen non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan akademik di setiap Fakultas.
+
+```{r, echo=FALSE, message=FALSE, warning=TRUE}
+dstkk_jaF <- dstkk %>%
+  group_by(Fakultas, JFA) %>%
+  summarize(Total = n())
+dstkk_jaF <- dstkk_jaF %>%
+  pivot_wider(names_from = JFA, values_from = Total)
+dstkk_jaF[is.na(dstkk_jaF)] <- 0
+names(dstkk_jaF) <- c("Fakultas", "Asisten Ahli", "Tenaga Pengajar", "Lektor", "Lektor Kepala")
+dstkk_jaF$Fakultas <- c("Hukum", "FKIP", "Teknik", "Pertanian", "FEB", "FISIP", "Kedokteran")
+dstkk_jaF <- adorn_totals(dstkk_jaF, where = c("row", "col"), name = "Jumlah")
+kable(dstkk_jaF) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jabatan Akademik" = 4, " " = 1))
+```
+
