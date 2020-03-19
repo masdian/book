@@ -1,1 +1,166 @@
 # Tenaga Kependidikan
+
+Tenaga kependidikan di Universitas Sultan Ageng Tirtayasa terdiri atas tenaga kependidikan (tendik) PNS dan tenaga kependidikan non PNS. 
+
+## Tendik PNS
+
+```{r, echo=FALSE, out.width="60%", message=FALSE, warning=FALSE, fig.align='center'}
+library(ggplot2, warn.conflicts = F)
+library(dplyr, warn.conflicts = F)
+library(plotly, warn.conflicts = F)
+library(tidyverse)
+library(shiny)
+sdm <- read.csv("static/SDM.csv")
+tkpns <- filter(sdm, STATUS == "Tendik PNS")
+```
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin.
+
+```{r, echo=FALSE, out.width="60%"}
+tkp <- tkpns %>%
+  group_by(JK) %>%
+  summarize(banyak = n())
+tkp$JK <- c("Laki-Laki", "Perempuan")
+
+div(plot_ly(type = "pie", labels = tkp$JK, values = tkp$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin di setiap Unit Kerja
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(janitor, warn.conflicts = F)
+library(kableExtra, warn.conflicts = F)
+tkp <- tkpns %>%
+  group_by(FAKULTAS, FAK, JK) %>%
+  summarize(Total = n())
+tkp <- tkp[,-1]
+tkp <- tkp %>%
+  pivot_wider(names_from = JK, values_from = Total)
+names(tkp) <- c("Unit Kerja", "Laki-Laki", "Perempuan")
+tkp[is.na(tkp)] <- 0
+tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
+kable(tkp) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
+```
+
+
+***
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan.
+
+```{r, echo=FALSE, out.width="60%"}
+tkp <- tkpns %>%
+  group_by(PENDIDIKAN) %>%
+  summarize(banyak = n())
+tkp$PENDIDIKAN <- c("S2", "S1", "Diploma", "SLTA", "SLTP", "SD")
+
+div(plot_ly(type = "pie", labels = tkp$PENDIDIKAN, values = tkp$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan di setiap Unit Kerja.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+tkp <- tkpns %>%
+  group_by(FAKULTAS, FAK, PEND) %>%
+  summarize(Total = n())
+tkp <- tkp[,-1]
+names(tkp) <- c("Unit Kerja", "PEND", "Total")
+tkp <- tkp %>%
+  pivot_wider(names_from = PEND, values_from = Total)
+tkp[is.na(tkp)] <- 0
+tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
+kable(tkp) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Pendidikan" = 15, " " = 1))
+```
+
+***
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan golongan.
+
+```{r, echo=FALSE, out.width="60%"}
+tkp <- tkpns %>%
+  group_by(GOL) %>%
+  summarize(total = n())
+names(tkp) <- c("Golongan", "total")
+div(plot_ly(tkp, x = ~Golongan, y = ~`total`, type = 'bar', name = "") %>%
+  layout(yaxis = list(title = '')), align = "center")
+```
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan golongan di setiap Unit Kerja
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+tkp <- tkpns %>%
+  group_by(FAKULTAS, FAK, GOL) %>%
+  summarize(Total = n()) %>%
+  arrange(GOL)
+tkp <- tkp[,-1]
+names(tkp) <- c("Unit Kerja", "GOL", "Total")
+tkp <- tkp %>%
+  pivot_wider(names_from = GOL, values_from = Total)
+tkp[is.na(tkp)] <- 0
+tkp <- adorn_totals(tkp, where = c("col", "row"), name = "Jumlah")
+kable(tkp) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Golongan" = 13, " " = 1))
+```
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan dan jenis kelamin.
+
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
+tkp <- tkpns %>%
+  group_by(JABATAN, JK) %>%
+  summarize(total = n()) 
+tkp <- tkp %>%
+  pivot_wider(names_from = JK, values_from = total)
+tkp[is.na(tkp)] <- 0
+names(tkp) <- c("Jabatan", "Laki-Laki", "Perempuan")
+tkp$Jabatan <- c("Administrasi", "Pustakawan", "Arsiparis", "Sopir",
+                 "Satpam", "Teknisi", "Perawat", "Lain-lain")
+### agar sesuai urutan dibuat faktor dengan level yang berurutan
+tkp$Jabatan <- factor(tkp$Jabatan, levels = tkp[["Jabatan"]])
+
+div(plot_ly(tkp, x = ~Jabatan, y = ~`Laki-Laki`, type = 'bar', name = "Laki-Laki") %>% 
+  add_trace(y = ~Perempuan, name = "Perempuan") %>%
+  layout(yaxis = list(title = ' '), barmode = 'group'), align = "center")
+
+tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
+
+kable(tkp) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
+```
+
+
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan di setiap Unit Kerja
+
+```{r, echo=FALSE, message=FALSE, warning=TRUE}
+tkp <- tkpns %>%
+  group_by(FAKULTAS, FAK, JABATAN) %>%
+  summarize(Total = n()) %>%
+  arrange(JABATAN)
+tkp <- tkp[,-1]
+tkp <- tkp %>%
+  pivot_wider(names_from = JABATAN, values_from = Total)
+tkp[is.na(tkp)] <- 0
+names(tkp) <- c("Unit Kerja", "Administrasi", "Pustakawan", "Arsiparis", "Sopir", "Satpam", "Teknisi", "Perawat", "Lain-lain")
+tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
+kable(tkp) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jabatan" = 8, " " = 1))
+```
+
+
+
+## Tendik non PNS
+
