@@ -67,18 +67,20 @@ div(plot_ly(type = "pie", labels = tkp$PENDIDIKAN, values = tkp$banyak,
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 tkp <- tkpns %>%
-  group_by(FAKULTAS, FAK, PEND) %>%
-  summarize(Total = n())
+  group_by(FAKULTAS, FAK, PENDIDIKAN) %>%
+  summarize(Total = n()) %>%
+  arrange(PENDIDIKAN)
 tkp <- tkp[,-1]
 names(tkp) <- c("Unit Kerja", "PEND", "Total")
 tkp <- tkp %>%
   pivot_wider(names_from = PEND, values_from = Total)
 tkp[is.na(tkp)] <- 0
+names(tkp) <- c("Unit Kerja", "S2", "S1", "Diploma", "SLTA", "SLTP", "SD")
 tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
 kable(tkp) %>%
   kable_styling(bootstrap_options = "striped", full_width = F,
                 latex_options = "scale_down") %>%
-  add_header_above(c(" " = 1, "Pendidikan" = 15, " " = 1))
+  add_header_above(c(" " = 1, "Pendidikan" = 6, " " = 1))
 ```
 
 ***
@@ -94,23 +96,22 @@ div(plot_ly(tkp, x = ~Golongan, y = ~`total`, type = 'bar', name = "") %>%
   layout(yaxis = list(title = '')), align = "center")
 ```
 
-> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan golongan di setiap Unit Kerja
+> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan golongan dan jenis kelamin
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 tkp <- tkpns %>%
-  group_by(FAKULTAS, FAK, GOL) %>%
+  group_by(GOL, JK) %>%
   summarize(Total = n()) %>%
   arrange(GOL)
-tkp <- tkp[,-1]
-names(tkp) <- c("Unit Kerja", "GOL", "Total")
+names(tkp) <- c("Golongan", "JK", "Total")
 tkp <- tkp %>%
-  pivot_wider(names_from = GOL, values_from = Total)
+  pivot_wider(names_from = JK, values_from = Total)
 tkp[is.na(tkp)] <- 0
 tkp <- adorn_totals(tkp, where = c("col", "row"), name = "Jumlah")
 kable(tkp) %>%
   kable_styling(bootstrap_options = "striped", full_width = F,
                 latex_options = "scale_down") %>%
-  add_header_above(c(" " = 1, "Golongan" = 13, " " = 1))
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
 ```
 
 > Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan dan jenis kelamin.
@@ -128,9 +129,6 @@ tkp$Jabatan <- c("Administrasi", "Pustakawan", "Arsiparis", "Sopir",
 ### agar sesuai urutan dibuat faktor dengan level yang berurutan
 tkp$Jabatan <- factor(tkp$Jabatan, levels = tkp[["Jabatan"]])
 
-div(plot_ly(tkp, x = ~Jabatan, y = ~`Laki-Laki`, type = 'bar', name = "Laki-Laki") %>% 
-  add_trace(y = ~Perempuan, name = "Perempuan") %>%
-  layout(yaxis = list(title = ' '), barmode = 'group'), align = "center")
 
 tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
 
@@ -141,26 +139,94 @@ kable(tkp) %>%
 ```
 
 
-> Sebaran tendik PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan di setiap Unit Kerja
+## Tendik non PNS
 
-```{r, echo=FALSE, message=FALSE, warning=TRUE}
-tkp <- tkpns %>%
-  group_by(FAKULTAS, FAK, JABATAN) %>%
-  summarize(Total = n()) %>%
-  arrange(JABATAN)
-tkp <- tkp[,-1]
-tkp <- tkp %>%
-  pivot_wider(names_from = JABATAN, values_from = Total)
-tkp[is.na(tkp)] <- 0
-names(tkp) <- c("Unit Kerja", "Administrasi", "Pustakawan", "Arsiparis", "Sopir", "Satpam", "Teknisi", "Perawat", "Lain-lain")
-tkp <- adorn_totals(tkp, where = c("row", "col"), name = "Jumlah")
-kable(tkp) %>%
+> Sebaran tendik non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin.
+
+```{r, echo=F, warning=FALSE, message=FALSE}
+tkk <- filter(sdm, STATUS == "Tendik Non PNS")
+tk <- tkk %>%
+  group_by(JK) %>%
+  summarize(banyak = n())
+tk$JK <- c("Laki-Laki", "Perempuan")
+
+div(plot_ly(type = "pie", labels = tk$JK, values = tk$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
+```
+
+> Sebaran tendik non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jenis kelamin di setiap Unit Kerja
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(janitor, warn.conflicts = F)
+library(kableExtra, warn.conflicts = F)
+tk <- tkk %>%
+  group_by(FAKULTAS, FAK, JK) %>%
+  summarize(Total = n())
+tk <- tk[,-1]
+tk <- tk %>%
+  pivot_wider(names_from = JK, values_from = Total)
+names(tk) <- c("Unit Kerja", "Laki-Laki", "Perempuan")
+tk[is.na(tk)] <- 0
+tk <- adorn_totals(tk, where = c("row", "col"), name = "Jumlah")
+kable(tk) %>%
   kable_styling(bootstrap_options = "striped", full_width = F,
                 latex_options = "scale_down") %>%
-  add_header_above(c(" " = 1, "Jabatan" = 8, " " = 1))
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
+```
+
+> Sebaran tendik non PNS Universitas Sultan Ageng Tirtayasa berdasarkan tingkat pendidikan.
+
+```{r, echo=FALSE, out.width="60%"}
+tk <- tkk %>%
+  group_by(PENDIDIKAN) %>%
+  summarize(banyak = n())
+tk$PENDIDIKAN <- c("S2", "S1", "Diploma", "SLTA", "SLTP", "SD")
+
+div(plot_ly(type = "pie", labels = tk$PENDIDIKAN, values = tk$banyak,
+        textinfo = "label+percent",
+        insidetextorientation = "radial"), align = "center")
 ```
 
 
+> Sebaran tendik non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan dan jenis kelamin.
 
-## Tendik non PNS
+```{r, echo=FALSE, out.width="60%", fig.align='center'}
+tk <- tkk %>%
+  group_by(JABATAN, JK) %>%
+  summarize(total = n()) 
+tk <- tk %>%
+  pivot_wider(names_from = JK, values_from = total)
+tk[is.na(tk)] <- 0
+names(tk) <- c("Jabatan", "Laki-Laki", "Perempuan")
+tk$Jabatan <- c("Administrasi", "Sopir", "Satpam", "Teknisi", "Perawat",
+                 "Lain-lain")
+### agar sesuai urutan dibuat faktor dengan level yang berurutan
+tk$Jabatan <- factor(tk$Jabatan, levels = tk[["Jabatan"]])
 
+tk <- adorn_totals(tk, where = c("row", "col"), name = "Jumlah")
+
+kable(tk) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jenis Kelamin" = 2, " " = 1))
+```
+
+> Sebaran tendik non PNS Universitas Sultan Ageng Tirtayasa berdasarkan jabatan di setiap Unit Kerja
+
+```{r, echo=FALSE, message=FALSE, warning=TRUE}
+tk <- tkk %>%
+  group_by(FAKULTAS, FAK, JABATAN) %>%
+  summarize(Total = n()) %>%
+  arrange(JABATAN)
+tk <- tk[,-1]
+tk <- tk %>%
+  pivot_wider(names_from = JABATAN, values_from = Total)
+tk[is.na(tk)] <- 0
+names(tk) <- c("Unit Kerja", "Administrasi", "Sopir", "Satpam", "Teknisi", "Perawat", "Lain-lain")
+tk <- adorn_totals(tk, where = c("row", "col"), name = "Jumlah")
+kable(tk) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F,
+                latex_options = "scale_down") %>%
+  add_header_above(c(" " = 1, "Jabatan" = 6, " " = 1))
+```
