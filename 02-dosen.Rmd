@@ -289,3 +289,15 @@ kable(dk) %>%
                 latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Jabatan Akademik" = 4, " " = 1))
 ```
+
+Berikut adalah daftar nama dosen non PNS di Universitas Sultan Ageng Tirtayasa.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+dos <- dstkk[,c(2, 3, 4, 7, 9, 11)]
+names(dos) <- c("Nama", "JK", "Pendidikan", "Jabatan",
+                   "Fakultas", "Program Studi")
+#kable(dosen1, longtable = T) %>%
+#  kable_styling(bootstrap_options = "striped", full_width = F,
+#                latex_options = c("scale_down", "repeat_header"))
+DT::datatable(dos)
+```
