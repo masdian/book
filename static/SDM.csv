@@ -246,7 +246,7 @@ NIP,NAMA,JK,PEND,PENDIDIKAN,GOL,JAB,JABATAN,FAK,FAKULTAS,PRODI,STATUS,PERJANJIAN
 1.99E+17,"Rina Yuliana, M.Pd.",P,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Guru SD,Dosen PNS,
 1.99E+17,"Encep Andriana, M.Pd.",P,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Guru SD,Dosen PNS,
 1.98E+17,"Siti Romlah Noer H., M.Pd.",P,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan IPA,Dosen PNS,
-1.98E+17,"Lusiani Dewi Assaat, S.Pd., M.Si.",P,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Kimia,Dosen PNS,
+1.98E+17,"Dr. Lusiani Dewi Assaat, S.Pd., M.Si.",P,S3,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Kimia,Dosen PNS,
 1.98E+17,"Irhamni, M.Si.",L,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Kimia,Dosen PNS,
 1.97E+17,"Dra. Ilmiyati Rahayu, M.Si.",P,S2,2_S2,IIId,Lektor,3_L,FKIP,2_FKIP,Pendidikan Matematika,Dosen PNS,
 1.98E+17,"Khairida Iskandar, S.Si., M.Si.",P,S2,2_S2,IIIc,Lektor,3_L,FKIP,2_FKIP,Pendidikan Matematika,Dosen PNS,
@@ -1230,9 +1230,72 @@ NIP,NAMA,JK,PEND,PENDIDIKAN,GOL,JAB,JABATAN,FAK,FAKULTAS,PRODI,STATUS,PERJANJIAN
 2.02E+11,"Angga Herdi Budiawan, S.Pd., M.Pd",L,S2,2_S2,,Pengolah Data Akademik,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,BLU
 2.02E+11,"Indra Nurhidayat P., SE.",L,S1,5_S1,,Pengadministrasi Data Akademik dan Kemahasiswaan,1_Administrasi,FEB,5_FEB,,Tendik Non PNS,BLU
 2.02E+11,"Sekar Handayani, S.Pd",P,S1,5_S1,,Pengadministrasi Keuangan,1_Administrasi,FEB,5_FEB,,Tendik Non PNS,BLU
-2.01604E+11,"Bayu Panatagama, SE",L,S1,5_S1,,Pengelola Infromasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,BLU
-2.01604E+11,"Rian Lisnawati, SH",P,S1,5_S1,,Staf ,1_Administrasi,IDB,IDB,,Tendik Non PNS,BLU
-2.01604E+11,"Epih Hayatul Fitrah, SH",P,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,BLU
-2.01604E+11,"Elsa Yenni Olla, S.St.",P,S1,5_S1,,PERAWAT,7_Perawat,BUKK,BUKK,,Tendik Non PNS,BLU
-2.01604E+11,Diki Aminnuddin,L,D3,6_Diploma,,Pengolah Data Akademik,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,BLU
-2.01604E+11,Eno Sundari,P,SMK,7_SLTA,,Staf ,1_Administrasi,BUKK,BUKK,,Tendik Non PNS,BLU
+2.02E+11,"Bayu Panatagama, SE",L,S1,5_S1,,Pengelola Infromasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,BLU
+2.02E+11,"Rian Lisnawati, SH",P,S1,5_S1,,Staf ,1_Administrasi,IDB,IDB,,Tendik Non PNS,BLU
+2.02E+11,"Epih Hayatul Fitrah, SH",P,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,BLU
+2.02E+11,"Elsa Yenni Olla, S.St.",P,S1,5_S1,,PERAWAT,7_Perawat,BUKK,BUKK,,Tendik Non PNS,BLU
+2.02E+11,Diki Aminnuddin,L,D3,6_Diploma,,Pengolah Data Akademik,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,BLU
+2.02E+11,Eno Sundari,P,SMK,7_SLTA,,Staf ,1_Administrasi,BUKK,BUKK,,Tendik Non PNS,BLU
+2.02E+11,Herli,L,SMK,7_SLTA,,Pengadministrasi Umum,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,BLU
+2.02E+11,Angga Nurhadi,L,SMP,8_SLTP,,Petugas Kebersihan,8_Lain-lain,Perpustakaan,Perpustakaan,,Tendik Non PNS,BLU
+2.02E+11,Satibi,L,SMP,8_SLTP,,Petugas Kebersihan,8_Lain-lain,UPBK,UPBK,,Tendik Non PNS,BLU
+2.02E+11,Khairurrohman,L,SMK,7_SLTA,,Pengemudi,4_Sopir,FEB,5_FEB,,Tendik Non PNS,BLU
+2.02E+11,"Hj. Eti Umniyati, ST., M.Pd.",P,S2,2_S2,,Pengadministrasi Data Sarana dan Prasarana,1_Administrasi,UPBK,UPBK,,Tendik Non PNS,BLU
+2.02E+11,"Achmad Ramdani, ST.",L,S1,5_S1,,Pengolah Data BMN,1_Administrasi,Kedokteran,7_Kedokteran,,Tendik Non PNS,BLU
+2.02E+11,Hamdani Gumelar,L,SMA,7_SLTA,,,1_Administrasi,ULP,ULP,,Tendik Non PNS,Non BLU
+2.02E+11,Dede A. Faizullah,L,SMA,7_SLTA,,Pengadministrasi Data Sarana dan Prasarana,1_Administrasi,UPBK,UPBK,,Tendik Non PNS,BLU
+2.02E+11,Agus Setiawan,L,SMA,7_SLTA,,Petugas Keamanan,5_Satpam,Teknik,3_Teknik,,Tendik Non PNS,BLU
+2.02E+11,Asep Irawan,L,Paket C,7_SLTA,,Petugas Keamanan,5_Satpam,Teknik,3_Teknik,,Tendik Non PNS,BLU
+2.02E+11,Sohari,L,SMA,7_SLTA,,Petugas Keamanan,5_Satpam,Teknik,3_Teknik,,Tendik Non PNS,BLU
+2.02E+11,Suharyanto,L,SMA,7_SLTA,,Petugas Keamanan,5_Satpam,Teknik,3_Teknik,,Tendik Non PNS,BLU
+2.02E+11,"Khoirotunnisa, SE.",P,S1,5_S1,,Administrasi,1_Administrasi,SPI,SPI,,Tendik Non PNS,BLU
+2.02E+11,dr. Waddy Fatmasari,P,S1,5_S1,,Dokter,8_Lain-lain,KLINIK,KLINIK,,Tendik Non PNS,BLU
+2.02E+11,Purwanto,L,SMA,7_SLTA,,Petugas Keamanan,5_Satpam,BUKK,BUKK,,Tendik Non PNS,BLU
+2.02E+11,Sakri,L,SMA,7_SLTA,,Petugas Keamanan,5_Satpam,FKIP,2_FKIP,,Tendik Non PNS,BLU
+2.02E+11,dr. Kharisma Yuliasis Widiasri,P,S1,5_S1,,Dokter,8_Lain-lain,BUKK,BUKK,,Tendik Non PNS,Non BLU
+2.02E+11,Indra Suhendi,L,SMP,8_SLTP,,Petugas Keamanan,5_Satpam,FKIP,2_FKIP,,Tendik Non PNS,Non BLU
+2.02E+11,Rusli,L,SD,9_SD,,Petugas Keamanan,5_Satpam,FKIP,2_FKIP,,Tendik Non PNS,Non BLU
+2.02E+11,Jamra,L,Paket B,8_SLTP,,Petugas Keamanan,5_Satpam,BUKK,BUKK,,Tendik Non PNS,Non BLU
+2.02E+11,Asepudin,L,SMA,7_SLTA,,Petugas Kebersihan,8_Lain-lain,BUKK,BUKK,,Tendik Non PNS,Non BLU
+2.02E+11,Ahmad Dayat,L,Paket B,8_SLTP,,Petugas Kebersihan,8_Lain-lain,BUKK,BUKK,,Tendik Non PNS,Non BLU
+2.02E+11,"Sanwani, SE",L,S1,5_S1,,Pengadministrasi Kepegawaian,1_Administrasi,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,Iis Trisnadewi,P,SMEA,7_SLTA,,Pengolah Data Barang Milik Negara,1_Administrasi,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,Sarhamah,P,MTs,7_SLTA,,Pramu Bakti,8_Lain-lain,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,Asmita,L,SMA,7_SLTA,,Pengadministrasi Data Akademik dan Kemahasiswaan,1_Administrasi,FEB,5_FEB,,Tendik Non PNS,BLU
+2.02E+11,Sapti,P,SD,9_SD,,Pramu Bakti,8_Lain-lain,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,"Suhartini, SE",P,S1,5_S1,,Pengelola Data Akademik,1_Administrasi,Kedokteran,7_Kedokteran,,Tendik Non PNS,BLU
+2.02E+11,"Iman Budiharjo, S.Kep",L,S1,5_S1,,Pengolah Data Sarana dan Prasarana Pendidikan,1_Administrasi,Kedokteran,7_Kedokteran,,Tendik Non PNS,BLU
+2.02E+11,Fatmawati,P,SMEA,7_SLTA,,Pramu Bakti,8_Lain-lain,Kedokteran,7_Kedokteran,,Tendik Non PNS,BLU
+2.02E+11,Vina Nura'eni,P,SMK,7_SLTA,,Pengolah Data Sarana dan Prasarana Pendidikan,1_Administrasi,Kedokteran,7_Kedokteran,,Tendik Non PNS,BLU
+2.02E+11,Muchtar,L,SD,9_SD,,Pramu Bakti,8_Lain-lain,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,Dedi Rusnaedi,L,SMP,8_SLTP,,Pramu Bakti,8_Lain-lain,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,Syaiful Said,L,SMA,7_SLTA,,Pengadministrasi Kemahasiswaan dan Alumni,1_Administrasi,AKPER,AKPER,,Tendik Non PNS,BLU
+2.02E+11,"Suryanita, S.Sos.",P,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,Non BLU
+2.02E+11,Rizky Agustina,P,S1,5_S1,,Pengadministrasi Sarana dan Prasarana Pendidikan,1_Administrasi,Pertanian,4_Pertanian,,Tendik Non PNS,Non BLU
+2.02E+11,"Yulia Kristianty, SST",P,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,FEB,5_FEB,,Tendik Non PNS,Non BLU
+2.02E+11,"Achmad Kusuma Rizqi, SE.",L,S1,5_S1,,Pengadministrasi Umum,1_Administrasi,SPI,SPI,,Tendik Non PNS,Non BLU
+2.02E+11,"Inni Nihayah, S.Pd.",P,S1,5_S1,,Pengadministrasi Barang Milik Negara,1_Administrasi,PLI,PLI,,Tendik Non PNS,Non BLU
+2.02E+11,"Muhammad Adil Muktafa, SH.",L,S1,5_S1,,Pengadministrasi Kemahasiswaan,1_Administrasi,Hukum,1_Hukum,,Tendik Non PNS,Non BLU
+2.02E+11,Sekar Ageng Cendekia ,P,S1,5_S1,,Penata Humas,1_Administrasi,BAKP,BAKP,,Tendik Non PNS,Non BLU
+2.02E+11,"Abi Dwi Purtiyugo, SE",L,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,Pascasarjana,8_Pascasarjana,,Tendik Non PNS,Non BLU
+2.02E+11,Ade Suhendi,L,S1,5_S1,,Pengelola Struktur dan Jaringan,8_Lain-lain,PUSDAINFO,PUSDAINFO,,Tendik Non PNS,Non BLU
+2.02E+11,"Baiti Khasanah, A.Md.",P,D3,6_Diploma,,Programmer,8_Lain-lain,BUKK,BUKK,,Tendik Non PNS,Non BLU
+2.02E+11,Permadhi Santosa,L,S1,5_S1,,Programmer,8_Lain-lain,PUSDAINFO,PUSDAINFO,,Tendik Non PNS,Non BLU
+2.02E+11,"Ristian Abdul Kohar, S.Pd.",L,S1,5_S1,,Pengadministrasi Barang Milik Negara,1_Administrasi,ULP,ULP,,Tendik Non PNS,Non BLU
+2.02E+11,"Piping Arif Siswandi, S.Sos",L,S1,5_S1,,Pengolah Bahan Pustaka,1_Administrasi,Perpustakaan,Perpustakaan,,Tendik Non PNS,Non BLU
+2.02E+11,Siti Azizah Aliyah,P,S1,5_S1,,Pengadministrasi Bahan Pustaka,1_Administrasi,Hukum,1_Hukum,,Tendik Non PNS,Non BLU
+2.02E+11,"Adam Paula, S.I.Kom",L,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,FISIP,6_FISIP,,Tendik Non PNS,Non BLU
+2.02E+11,Dwi Ainun Naseha ,P,S1,5_S1,,Pengolah Data Sarana dan Prasarana Pendidikan,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
+2.02E+11,"Siti Anisa, S.P",P,S1,5_S1,,Pengadministrasi Sarana dan Prasarana Pendidikan,1_Administrasi,Pertanian,4_Pertanian,,Tendik Non PNS,Non BLU
+2.02E+11,Setya Surya,L,S1,5_S1,,Pengadministrasi Umum,1_Administrasi,LP3M,LP3M,,Tendik Non PNS,Non BLU
+2.02E+11,Wanda Muhammad Saemantik,L,S1,5_S1,,Pengelola Infrastruktur dan Jaringan,8_Lain-lain,PUSDAINFO,PUSDAINFO,,Tendik Non PNS,Non BLU
+2.02E+11,"Alkhudori Baikuni, SE",L,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,Non BLU
+2.02E+11,Afrizal Wily Rinaldi,L,S1,5_S1,,Pengadministrasi Akademik,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,Non BLU
+2.02E+11,Eva Nurlela,P,S1,5_S1,,Pengadministrasi Keuangan,1_Administrasi,Pertanian,4_Pertanian,,Tendik Non PNS,Non BLU
+2.02E+11,"Shifana Mardatillah, SE.",P,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
+2.02E+11,"Ahmad Ni'matullah Al-Ulya, S.Pd.",L,S1,5_S1,,Pengadministrasi Data Keuangan,1_Administrasi,FKIP,2_FKIP,,Tendik Non PNS,Non BLU
+2.02E+11,"Siti Nurfaizah, S.Pd.",P,S1,5_S1,,Pengadministrasi Persuratan,1_Administrasi,Kedokteran,7_Kedokteran,,Tendik Non PNS,Non BLU
+2.02E+11,"Hendrini Pujiastuti, ST.",P,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
+2.02E+11,"Risa Mekawati, ST.",P,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
+2.02E+11,"Rozak, ST.",L,S1,5_S1,,Pengolah Data Akademik,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
+2.02E+11,Tuti Rismawati,P,SMA,7_SLTA,,Pengolah Data Akademik,1_Administrasi,Teknik,3_Teknik,,Tendik Non PNS,Non BLU
