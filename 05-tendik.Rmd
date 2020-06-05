@@ -19,7 +19,7 @@ tkpns <- filter(sdm, STATUS == "Tendik PNS")
 ```{r, echo=FALSE, out.width="60%"}
 tkp <- tkpns %>%
   group_by(JK) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 tkp$JK <- c("Laki-Laki", "Perempuan")
 
 div(plot_ly(type = "pie", labels = tkp$JK, values = tkp$banyak,
@@ -55,7 +55,7 @@ kable(tkp) %>%
 ```{r, echo=FALSE, out.width="60%"}
 tkp <- tkpns %>%
   group_by(PENDIDIKAN) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 tkp$PENDIDIKAN <- c("S2", "S1", "Diploma", "SLTA", "SLTP", "SD")
 
 div(plot_ly(type = "pie", labels = tkp$PENDIDIKAN, values = tkp$banyak,
@@ -90,7 +90,7 @@ kable(tkp) %>%
 ```{r, echo=FALSE, out.width="60%"}
 tkp <- tkpns %>%
   group_by(GOL) %>%
-  summarize(total = n())
+  summarize(total = n(), .groups = "drop")
 names(tkp) <- c("Golongan", "total")
 div(plot_ly(tkp, x = ~Golongan, y = ~`total`, type = 'bar', name = "") %>%
   layout(yaxis = list(title = '')), align = "center")
@@ -119,7 +119,7 @@ kable(tkp) %>%
 ```{r, echo=FALSE, out.width="60%", fig.align='center'}
 tkp <- tkpns %>%
   group_by(JABATAN, JK) %>%
-  summarize(total = n()) 
+  summarize(total = n(), .groups = "drop") 
 tkp <- tkp %>%
   pivot_wider(names_from = JK, values_from = total)
 tkp[is.na(tkp)] <- 0
@@ -180,7 +180,7 @@ kable(tk) %>%
 ```{r, echo=FALSE, out.width="60%"}
 tk <- tkk %>%
   group_by(PENDIDIKAN) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 tk$PENDIDIKAN <- c("S2", "S1", "Diploma", "SLTA", "SLTP", "SD")
 
 div(plot_ly(type = "pie", labels = tk$PENDIDIKAN, values = tk$banyak,
@@ -194,7 +194,7 @@ div(plot_ly(type = "pie", labels = tk$PENDIDIKAN, values = tk$banyak,
 ```{r, echo=FALSE, out.width="60%", fig.align='center'}
 tk <- tkk %>%
   group_by(JABATAN, JK) %>%
-  summarize(total = n()) 
+  summarize(total = n(), .groups = "drop") 
 tk <- tk %>%
   pivot_wider(names_from = JK, values_from = total)
 tk[is.na(tk)] <- 0

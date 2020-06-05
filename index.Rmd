@@ -198,6 +198,3 @@ kable(cutikan) %>%
                 latex_options = "scale_down") %>%
   add_header_above(c(" " = 1, "Angkatan" = 7, " " = 1))
 ```
-
-
-

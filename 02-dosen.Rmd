@@ -36,7 +36,7 @@ div(plot_ly(dos, x = ~Fakultas, y = ~`Laki-Laki`, type = 'bar', name = "Laki-Lak
 ```{r, echo=FALSE, out.width="60%"}
 dos <- dosen %>%
   group_by(JK) %>%
-  summarize(banyak = n())
+  summarise(banyak = n(), .groups = "drop")
 dos$JK <- c("Laki-Laki", "Perempuan")
 
 div(plot_ly(type = "pie", labels = dos$JK, values = dos$banyak,
@@ -71,7 +71,7 @@ kable(dos) %>%
 ```{r, echo=FALSE, out.width="60%"}
 dos <- dosen %>%
   group_by(PEND) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 
 div(plot_ly(type = "pie", labels = dos$PEND, values = dos$banyak,
         textinfo = "label+percent",
@@ -102,7 +102,7 @@ kable(dos) %>%
 ```{r, echo=FALSE, out.width="60%"}
 dos <- dosen %>%
   group_by(GOL) %>%
-  summarize(total = n())
+  summarize(total = n(), .groups = "drop")
 names(dos) <- c("Golongan", "total")
 div(plot_ly(dos, x = ~Golongan, y = ~`total`, type = 'bar', name = "") %>%
   layout(yaxis = list(title = '')), align = "center")
@@ -130,7 +130,7 @@ kable(dos) %>%
 ```{r, echo=FALSE, out.width="60%", fig.align='center'}
 dos <- dosen %>%
   group_by(JABATAN) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 
 dos$JABATAN <- c("Guru Besar", "Lektor Kepala", "Lektor",
                       "Asisten Ahli", "Tenaga Pengajar")
@@ -201,7 +201,7 @@ div(plot_ly(dk, x = ~Fakultas, y = ~`Laki-Laki`, type = 'bar', name = "Laki-Laki
 ```{r, echo=FALSE, out.width="60%"}
 dk <- dstkk %>%
   group_by(JK) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 dk$JK <- c("Laki-Laki", "Perempuan")
 
 div(plot_ly(type = "pie", labels = dk$JK, values = dk$banyak,
@@ -232,7 +232,7 @@ kable(dk) %>%
 ```{r, echo=FALSE, out.width="60%"}
 dk <- dstkk %>%
   group_by(PENDIDIKAN) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 
 dk$PENDIDIKAN <- c("S3", "S2", "Spesialis", "S1 Profesi")
 div(plot_ly(type = "pie", labels = dk$PENDIDIKAN, values = dk$banyak,
@@ -263,7 +263,7 @@ kable(dk) %>%
 ```{r, echo=FALSE, out.width="60%", fig.align='center'}
 dk <- dstkk %>%
   group_by(JABATAN) %>%
-  summarize(banyak = n())
+  summarize(banyak = n(), .groups = "drop")
 
 dk$JABATAN <- c("Lektor Kepala", "Lektor", "Asisten Ahli", "Tenaga Pengajar")
 
